@@ -18,6 +18,14 @@ y la forma del repositorio —un contrato y sus implementaciones juntos, con una
 
 Los dos se publican en `https://maven.pkg.github.com/ahincho/nova-java-28-persistence` con la misma versión.
 
+## Desde la 1.0.0, la API es estable
+
+La 0.1.0 salió sin consumidor. La validó el servicio de pedidos de Plaza
+([`nova-plaza-03-spring-boot-orders`](https://github.com/ahincho/nova-plaza-03-spring-boot-orders)), que lista
+sus pedidos por cursor, hereda `AuditableEntity` y responde 409 por un dato duplicado, y con eso la capacidad
+pasó a la 1.0.0. Desde aquí un cambio incompatible de la API, del formato del cursor o del orden de los
+comportamientos es una versión mayor.
+
 **No entra en el meta-starter** (ADR-052): trae JPA, y un servicio sin base de datos no lo necesita. Se
 declara aparte.
 
@@ -158,7 +166,7 @@ repositories {
 }
 
 dependencies {
-    implementation("pe.edu.nova.java.starters:nova-persistence-spring-boot-starter:0.1.0")
+    implementation("pe.edu.nova.java.starters:nova-persistence-spring-boot-starter:1.0.0")
 }
 ```
 
